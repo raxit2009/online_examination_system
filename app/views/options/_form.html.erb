@@ -20,8 +20,9 @@
     <%= f.check_box :correct %>
   </div>
   <div class="field">
-    <%= f.label :quistion_id %><br>
-    <%= f.number_field :quistion_id %>
+    <label>Select Question</label><br>
+    <%= select("option", "question_id", Question.all.collect {|p| [ p.text, p.id ] }) %>
+    <%#= f.number_field :quistion_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

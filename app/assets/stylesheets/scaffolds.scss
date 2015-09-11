@@ -1,73 +1,269 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//colors
+$color_empress_approx: #826e79;
+$color_blue_dianne_approx: #1c4f64;
+$color_tobacco_brown_approx: #71564b;
+$white_40: rgba(255,255,255,0.4);
+$color_suva_gray_approx: #888;
+$color_congress_blue_approx: #004c9b;
+$white_30: rgba(255, 255, 255, 0.3);
+$black_30: rgba(0, 0, 0, 0.3);
+$color_hawkes_blue_approx: #d3ebff;
+$color_tundora_approx: #444444;
+$color_cerulean_approx: #0496da;
+$color_science_blue_approx: #0067cd;
+$color_lochmara_approx: #0383d3;
+$color_chicago_approx: #575757;
+$color_woodsmoke_approx: #111111;
+$black_40: rgba(0,0,0,0.4);
+$color_gallery_approx: #eeeeee;
+$color_mountain_mist_approx: #999999;
+$color_celeste_approx: #ccc;
+$color_thunderbird_approx: #c92020;
+
+//fonts
+$font_0: Cambria;
+$font_1: Hoefler Text;
+$font_2: serif;
+$font_3: Segoe UI;
+$font_4: Arial;
+$font_5: sans-serif;
+
+//urls
+$url_0: url(http://i34.tinypic.com/m922bk.jpg);
+$url_1: url(http://i33.tinypic.com/24eng8x.png);
+$url_2: url(http://i38.tinypic.com/33c4s9c.png);
+$url_3: url(http://i34.tinypic.com/2qm0ndc.png);
+$url_4: url(http://i33.tinypic.com/14txydw.jpg);
+
+//@extend-elements
+//original selectors
+//#main form .row.error:after, #main form .row.success:after
+%extend_1 {
+  content: '';
+  position: absolute;
+  right: 60px;
+  top: 8px;
+  width: 32px;
+  height: 32px;
+  background: $url_2 no-repeat;
+}
+
+//original selectors
+//#main form input[type=text], #main form input[type=password]
+%extend_2 {
+  border: none;
+  background: $url_3 no-repeat top left;
+  font: 14px $font_3, $font_4, $font_5;
+  color: $color_suva_gray_approx;
+  outline: none;
+  height: 48px;
+  margin: 0 auto 22px;
+  padding: 0 10px 0 50px;
+  width: 278px;
+}
+
+//original selectors
+//footer a.al3xis, a.al3xis:visited
+%extend_3 {
+  color: $color_mountain_mist_approx;
+  font-size: 12px;
+  left: 50%;
+  margin: 16px 0 0 110px;
+  position: absolute;
+  text-decoration: none;
+  top: 0;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  background: $url_0 repeat center top $color_empress_approx;
+}
 body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font: 14px/1.3 'Segoe UI', 'Arial', sans-serif;
 }
-
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
 a {
-  color: #000;
-
+  outline: none;
+  color: $color_blue_dianne_approx;
   &:visited {
-    color: #666;
+    outline: none;
+    color: $color_blue_dianne_approx;
   }
-
   &:hover {
-    color: #fff;
-    background-color: #000;
+    text-decoration: none;
+  }
+  &.al3xis:visited {
+    @extend %extend_3;
   }
 }
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
+section {
+  display: block;
 }
-
-#notice {
-  color: green;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-
+footer {
+  display: block;
+  font: 14px/1.3 'Segoe UI',Arial, sans-serif;
+  background-color: $color_woodsmoke_approx;
+  bottom: 0;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 0 -1px 2px $black_40;
+  height: 45px;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 100000;
   h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
+    color: $color_gallery_approx;
+    font-size: 14px;
+    font-weight: normal;
+    left: 50%;
+    margin-left: -400px;
+    padding: 13px 0 0;
+    position: absolute;
+    width: 540px;
+    i {
+      font-style: normal;
+      color: $color_suva_gray_approx;
+    }
   }
-
-  ul li {
-    font-size: 12px;
-    list-style: square;
+  a {
+    &.al3xis {
+      @extend %extend_3;
+    }
+    i {
+      color: $color_celeste_approx;
+      font-style: normal;
+      b {
+        color: $color_thunderbird_approx;
+        font-weight: normal;
+      }
+    }
+  }
+}
+header {
+  display: block;
+}
+h1 {
+  font: bold 36px $font_0, $font_1, $font_2;
+  margin-bottom: 50px;
+  color: $color_tobacco_brown_approx;
+  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: 1px 1px 0 $white_40;
+}
+#main {
+  width: 440px;
+  margin: 80px auto 120px;
+  position: relative;
+  text-align: center;
+  form {
+    width: 440px;
+    height: 450px;
+    background: $url_1 no-repeat;
+    padding-top: 50px;
+    .row {
+      position: relative;
+      &.error:after {
+        @extend %extend_1;
+        background-position: 0 -79px;
+      }
+      &.success:after {
+        @extend %extend_1;
+      }
+    }
+    input[type=text] {
+      @extend %extend_2;
+    }
+    input[type=password] {
+      @extend %extend_2;
+    }
+    input[disabled] {
+      opacity: 0.5;
+    }
+    input[type=submit] {
+      border: 1px solid $color_congress_blue_approx;
+      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+      border-radius: 3px 3px 3px 3px;
+      //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+      box-shadow: 0 1px 0 $white_30 inset, 0 1px 1px $black_30;
+      color: $color_hawkes_blue_approx;
+      cursor: pointer;
+      display: block;
+      font: bold 24px $font_0, $font_1, $font_2;
+      margin: 230px auto 0;
+      padding: 10px;
+      //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+      text-shadow: 0 -1px 0 $color_tundora_approx;
+      width: 410px;
+      background-color: $color_cerulean_approx;
+      background-image: linear-gradient(top, $color_cerulean_approx 0, $color_science_blue_approx 100%);
+      &:hover {
+        background-color: $color_lochmara_approx;
+        background-image: linear-gradient(top, $color_lochmara_approx 0, $color_congress_blue_approx 100%);
+      }
+      &:active {
+        background-color: $color_science_blue_approx;
+        background-image: linear-gradient(top, $color_science_blue_approx 0, $color_congress_blue_approx 100%);
+      }
+    }
+    .arrow {
+      background: $url_4 no-repeat -10px 0;
+      height: 120px;
+      left: 214px;
+      position: absolute;
+      top: 300px;
+      width: 11px;
+      //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+      transition: 0.3s;
+      //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+      transform: rotate(-134deg);
+    }
+    .arrowCap {
+      background: $url_4 no-repeat -43px 0;
+      height: 20px;
+      left: 208px;
+      position: absolute;
+      top: 352px;
+      width: 20px;
+      z-index: 10;
+    }
+    .meterText {
+      color: $color_chicago_approx;
+      font-size: 10px;
+      left: 189px;
+      line-height: 1.1;
+      position: absolute;
+      top: 402px;
+      width: 60px;
+    }
+    .email input {
+      background-position: 0 0;
+      &:focus {
+        background-position: 0 -48px;
+      }
+    }
+    .pass input {
+      background-position: 0 -96px;
+      &:focus {
+        background-position: 0 -144px;
+      }
+    }
   }
 }

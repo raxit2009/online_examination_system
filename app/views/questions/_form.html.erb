@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= select("question", "quiz_type_id", QuizType.all.collect {|p| [ p.title, p.id ] }) %>
+  </div>
   <div class="field">
     <%= f.label :text %><br>
     <%= f.text_field :text %>

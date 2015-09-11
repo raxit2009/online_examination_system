@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   resources :questions
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  get '/home' => 'quiz#home'
+  get '/start_quiz/:id' => "quiz#start_quiz", :as => "start_quiz"
+  post 'answer' => "quiz#answer", :as => "answer"
   # You can have the root of your site routed with "root"
-   root 'questions#index'
+    root 'quiz#home'
+   #root 'questions#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

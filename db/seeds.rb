@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+QuizType.create!(title: "Aptitude")
+QuizType.create!(title: "Reasoning")
+QuizType.create!(title: "English")
+QuizType.create!(title: "General Knowledge")

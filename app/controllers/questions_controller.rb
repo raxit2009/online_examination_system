@@ -15,10 +15,12 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    @quiz_type = QuizType.all
   end
 
   # GET /questions/1/edit
   def edit
+    @quiz_type = QuizType.all
   end
 
   # POST /questions
@@ -69,6 +71,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:text)
+      params.require(:question).permit(:text, :quiz_type_id)
     end
 end

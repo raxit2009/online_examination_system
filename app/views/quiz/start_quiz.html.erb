@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Start Quiz</title>
+</head>
+<body>
+	<%= form_tag({:controller => "quiz", :action => "answer"}) do %>
+		<div><%= @questions.text %></div>
+		<%= hidden_field_tag :user_id, current_user.id %>
+		<%= hidden_field_tag :question_id, @questions.id %>
+		<%= hidden_field_tag :quiz_type_id, @questions.quiz_type.id %>
+		<% if !@questions.options.empty? %>
+			<% @questions.options.each do |option| %>
+				<%= radio_button_tag("option_id", option.id) %>
+				<div><%= option.text %></div>
+			<% end %>
+		<% end %>
+		<%= submit_tag("Continue", :class => "submit") %>
+	<% end %>
+</body>
+</html>

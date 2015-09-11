@@ -11,20 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820140055) do
+ActiveRecord::Schema.define(version: 20150902123714) do
 
   create_table "options", force: :cascade do |t|
     t.string   "text",        limit: 255
     t.boolean  "correct"
-    t.integer  "quistion_id", limit: 4
+    t.integer  "question_id", limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string   "text",       limit: 255
+    t.string   "text",         limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "quiz_type_id", limit: 4
+  end
+
+  create_table "quiz_types", force: :cascade do |t|
+    t.string   "title",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.string   "title",        limit: 255
+    t.integer  "user_id",      limit: 4
+    t.integer  "quiz_type_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "question_id",  limit: 4
+    t.integer  "option_id",    limit: 4
   end
 
   create_table "users", force: :cascade do |t|
